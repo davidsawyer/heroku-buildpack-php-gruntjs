@@ -190,11 +190,9 @@ echo "Dependencies installed" | indent
 
 # install dependencies with npm
 echo "-----> Installing grunt dependencies with npm"
-cd build
 run_grunt_npm "install --production --silent"
 echo "-----> Running Grunt"
 grunt
-cd ../
 echo "Dependencies installed" | indent
 
 echo "-----> Building runtime environment"
