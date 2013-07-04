@@ -186,6 +186,7 @@ if [ ! -d "$PWD/.gem" ]; then
 fi
 gem install sass --version "$SASS_VERSION" --no-rdoc --no-ri --install-dir "$PWD/.gem" | indent
 export GEM_PATH=$GEM_PATH:$PWD/.gem
+export PATH=$PWD/.gem/bin/:$PATH
 echo "       done."
 
 # install grunt with npm
