@@ -13,6 +13,7 @@ unset GIT_DIR
 # config
 SCONS_VERSION="1.2.0"
 S3_BUCKET="heroku-buildpack-nodejs"
+SASS_VERSION="3.2.3"
 
 # parse and derive params
 BUILD_DIR=$1
@@ -178,6 +179,14 @@ PATH="$VENDORED_SCONS:$VENDORED_NODE/bin:$PATH"
 INCLUDE_PATH="$VENDORED_NODE/include"
 export CPATH="$INCLUDE_PATH"
 export CPPPATH="$INCLUDE_PATH"
+
+echo "-----> Installing SASS..."
+if [ ! -d "$PWD/.gem" ]; then
+  mkdir $PWD/.gem
+fi
+gem install sass --version "$SASS_VERSION" --no-rdoc --no-ri --install-dir "$PWD/.gem" | indent
+export GEM_PATH=$GEM_PATH:$PWD/.gem
+echo "       done."
 
 # install grunt with npm
 echo "-----> Installing global dependencies with npm"
