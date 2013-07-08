@@ -12,9 +12,11 @@ Use the following command (more info [here](https://devcenter.heroku.com/article
 
 `$ heroku create --buildpack https://github.com/gcpantazis/heroku-buildpack-php-gruntjs.git`
 
-The buildpack expects that you set a package.json file at your project's root for node/npm configuration, and keep a separate package.json alongside your gruntfile in `/build`.
+The buildpack expects that you set a package.json file at your project's root for node/npm configuration as well as grunt info. Gruntfile.(js|coffee) should also live in the root.
 
-On deploy to heroku, this configuration installs grunt globally, and will run `npm install` at the root and `/build` level.
+Sass will be installed prior to any grunt installs so you can use the grunt-contrib-sass plugin.
+
+On deploy to heroku, this configuration installs grunt globally, and will run `npm install` at the root.
 
 License
 -------
