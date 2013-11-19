@@ -32,6 +32,15 @@ function mktmpdir() {
   echo $dir
 }
 
+function installJQ() {
+  tar xzf $LP_DIR/src/jq-1.3.tar.gz
+  cd jq-1.3
+  echo 'Installing JQ'
+  ./configure --prefix=/app/vendor/jq && make && make install
+  export PATH=/app/vendor/jq/bin:$PATH
+  cd ..
+}
+
 function indent() {
   c='s/^/       /'
   case $(uname) in
@@ -201,6 +210,10 @@ echo "Dependencies installed" | indent
 # install dependencies with npm
 echo "-----> Installing grunt dependencies with npm"
 run_grunt_npm "install --production --silent"
+
+echo "-----> Installing Grunt dependencies"
+installJQ
+
 echo "-----> Running Grunt"
 grunt heroku -v
 echo "Dependencies installed" | indent
