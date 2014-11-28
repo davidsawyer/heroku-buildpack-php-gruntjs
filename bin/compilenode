@@ -215,7 +215,7 @@ echo "-----> Installing Grunt dependencies"
 installJQ
 
 echo "-----> Running Grunt"
-grunt heroku -v
+grunt build -v
 echo "Dependencies installed" | indent
 
 echo "-----> Building runtime environment"
