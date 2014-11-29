@@ -200,16 +200,16 @@ echo "       done."
 
 # install grunt with npm
 echo "-----> Installing global dependencies with npm"
-run_npm "install -g grunt-cli --silent"
+run_npm "install -g grunt-cli"
 
 # install other node dependencies with npm
 echo "-----> Installing global dependencies with npm"
-run_npm "install --production --silent"
+run_npm "install --production"
 echo "Dependencies installed" | indent
 
 # install dependencies with npm
 echo "-----> Installing grunt dependencies with npm"
-run_grunt_npm "install --production --silent"
+run_grunt_npm "install --production"
 
 echo "-----> Installing Grunt dependencies"
 installJQ
