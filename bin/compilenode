@@ -129,7 +129,7 @@ declare -A engine_versions
 declare -A engine_defaults
 declare -A engine_requests
 
-engine_defaults["node"]="0.10.40"
+engine_defaults["node"]="0.10.21"
 engine_defaults["npm"]="1.3.11"
 
 engine_versions["node"]=$(manifest_versions "nodejs")
